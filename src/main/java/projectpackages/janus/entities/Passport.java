@@ -17,6 +17,10 @@ public class Passport {
     @Column(name = "animalType", nullable = false)
     private String animalType;
 
+    public Passport(String animalType) {
+        this.animalType = animalType;
+    }
+
     public String getGuid() {
         return guid;
     }
