@@ -13,7 +13,7 @@ public class PassportController {
     @Autowired
     private PassportService passportService;
 
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/passport")
     public ModelAndView getPassport(ModelAndView modelAndView){
         Passport passport = new Passport("12AnimalType12");
         modelAndView.addObject("passport", passport);

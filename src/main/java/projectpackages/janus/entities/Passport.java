@@ -1,8 +1,11 @@
 package projectpackages.janus.entities;
 
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+
+@Data
 
 @Entity
 @Table(name = "passport")
@@ -18,22 +21,6 @@ public class Passport {
     private String animalType;
 
     public Passport(String animalType) {
-        this.animalType = animalType;
-    }
-
-    public String getGuid() {
-        return guid;
-    }
-
-    public void setGuid(String guid) {
-        this.guid = guid;
-    }
-
-    public String getAnimalType() {
-        return animalType;
-    }
-
-    public void setAnimalType(String animalType) {
         this.animalType = animalType;
     }
 }

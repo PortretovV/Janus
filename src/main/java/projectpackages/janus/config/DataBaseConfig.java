@@ -20,10 +20,10 @@ import java.io.InputStream;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories("projectpackages.janus.repository")
+@EnableJpaRepositories(basePackages = "projectpackages.janus.repository", entityManagerFactoryRef = "configEntityManagerFactory")
 @EnableTransactionManagement
 @PropertySource("classpath:db.properties")
-@ComponentScan("projectpackages.janus")
+@ComponentScan(basePackages = "projectpackages.janus")
 public class DataBaseConfig {
 
     // получение значений из .properties файлов
@@ -65,7 +65,6 @@ public class DataBaseConfig {
             Properties properties = new Properties();
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("hibernate.properties");
             properties.load(inputStream);
-
             return properties;
         }
         catch (IOException e) {
