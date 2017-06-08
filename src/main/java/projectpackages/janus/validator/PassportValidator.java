@@ -1,27 +1,22 @@
 package projectpackages.janus.validator;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-import projectpackages.janus.entities.User;
-import projectpackages.janus.service.UserService;
+import projectpackages.janus.entities.Passport;
 
-@Component
-public class UserValidator implements Validator {
-
-    @Autowired
-    private UserService userService;
-
-
+/**
+ * Created by VP on 04.06.2017.
+ */
+public class PassportValidator implements Validator {
     public boolean supports(Class<?> aClass) {
-        return User.class.equals(aClass);
+        return Passport.class.equals(aClass);
     }
 
     public void validate(Object o, Errors errors) {
-        User user = (User) o;
+        Passport passport = (Passport)o;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
+
     }
 }
